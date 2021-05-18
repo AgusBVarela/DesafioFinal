@@ -1,0 +1,28 @@
+# Properties file for local/dev enviroment
+# You need to configure the environment variable in your IDE, more info in README.md
+# Overrides application.yml default properties
+spring:
+  jwt:
+    secret: techgeeknext
+  datasource:
+    #    url: jdbc:mysql://${DB_MYSQL_DESAENV04_PROYFINAL_PROYFINAL_ENDPOINT}/proyfinal?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false
+    # host: localhost:3306
+    # db: proyectofinal_db
+    # username: final
+    # password: final
+    host: proxysql.master.meliseginf.com:6612
+    db: vareladb
+    username: ${LOCAL_DB_USER}
+    password: ${LOCAL_DB_PASS}
+    initialization-mode: always
+
+  jpa:
+    show-sql: true
+    hibernate:
+      sql: debug
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+
+server:
+  port: 8080 # no cambiar en prod
